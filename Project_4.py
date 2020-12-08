@@ -86,4 +86,4 @@ if __name__ == "__main__":
     answer = hill_climbing(initial, timeout)
     print_answer(answer)
 
-    print("\n--- Total runtime: %s seconds ---\n" % (time.time() - start_time))
+    print("\n--- Total elapsed time: %s seconds ---\n" % (time.time() - start_time))
