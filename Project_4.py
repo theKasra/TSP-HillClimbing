@@ -48,10 +48,10 @@ def hill_climbing(initial, timeout):
     current = initial
     timeout_start = time.time()
     while time.time() < timeout_start + timeout:
-        best_neighbor = find_best_neighbour(current)
-        if best_neighbor.cost <= current.cost:
-            current = best_neighbor
-    return best_neighbor
+        best_neighbour = find_best_neighbour(current)
+        if best_neighbour.cost <= current.cost:
+            current = best_neighbour
+    return best_neighbour
 
 def print_answer(answer):
     print("\nPath: ", end="")
