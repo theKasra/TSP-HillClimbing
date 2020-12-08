@@ -44,14 +44,14 @@ def find_best_neighbour(current):
                 best_neighbour = deepcopy(temp)
     return best_neighbour
 
-def hill_climbing(initial, timeout):
+def hill_climbing(initial):
     current = initial
-    timeout_start = time.time()
-    while time.time() < timeout_start + timeout:
+    while True:
         best_neighbour = find_best_neighbour(current)
-        if best_neighbour.cost <= current.cost:
+        if best_neighbour.cost < current.cost:
             current = best_neighbour
-    return best_neighbour
+        else:
+            return current
 
 def print_answer(answer):
     print("\nPath: ", end="")
@@ -73,8 +73,6 @@ if __name__ == "__main__":
         system("cls")   # sorry no linux master race
         print("Wrong input number, try again!\n")
 
-    timeout = float(input("\n> Enter timeout value in seconds: "))
-
     filename = "input_" + input_number + ".txt"
     readfile(filename)
 
@@ -83,7 +81,7 @@ if __name__ == "__main__":
     initial = Cycle(initial_path, initial_cost)
 
     start_time = time.time()
-    answer = hill_climbing(initial, timeout)
+    answer = hill_climbing(initial)
     print_answer(answer)
 
     print("\n--- Total elapsed time: %s seconds ---\n" % (time.time() - start_time))
