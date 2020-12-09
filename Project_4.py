@@ -61,9 +61,7 @@ def print_answer(answer):
         if i < len(answer.path) - 1: print(" -> ", end="")
     print("\nCost: ", answer.cost)
 
-
-
-if __name__ == "__main__":
+def main():
     starting_text = "\nWhich input would you like to choose?\n1. input_1.txt - 5 cities\n2. input_2.txt - 100 cities\n\n> Enter the number: "
 
     while True:
@@ -85,3 +83,7 @@ if __name__ == "__main__":
     print_answer(answer)
 
     print("\n--- Total elapsed time: %s seconds ---\n" % (time.time() - start_time))
+
+
+if __name__ == "__main__":
+    main()
