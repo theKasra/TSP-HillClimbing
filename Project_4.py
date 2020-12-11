@@ -48,10 +48,9 @@ def hill_climbing(initial):
     current = initial
     while True:
         best_neighbour = find_best_neighbour(current)
-        if best_neighbour.cost < current.cost:
-            current = best_neighbour
-        else:
+        if best_neighbour.cost >= current.cost:
             return current
+        current = deepcopy(best_neighbour)
 
 def print_answer(answer):
     print("\nPath: ", end="")
