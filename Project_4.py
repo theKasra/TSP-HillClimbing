@@ -44,13 +44,13 @@ def find_best_neighbour(current):
                 best_neighbour = deepcopy(temp)
     return best_neighbour
 
-def hill_climbing(initial):
+def hillclimbing_steepest(initial):
     current = initial
     while True:
         best_neighbour = find_best_neighbour(current)
         if best_neighbour.cost >= current.cost:
             return current
-        current = deepcopy(best_neighbour)
+        current = best_neighbour
 
 def print_answer(answer):
     print("\nPath: ", end="")
@@ -78,7 +78,7 @@ def main():
     initial = Cycle(initial_path, initial_cost)
 
     start_time = time.time()
-    answer = hill_climbing(initial)
+    answer = hillclimbing_steepest(initial)
     print_answer(answer)
 
     print("\n--- Total elapsed time: %s seconds ---\n" % (time.time() - start_time))
